@@ -27,6 +27,10 @@
         </div>
       </div>
       
+      <div class="error">
+        <p class="error-text" style="color: rgb(95,105,131); font-size: 15px"></p>
+      </div>
+      
       <form id="addEvent" style="margin-bottom: 15px; height: 31px; float:center; display:inline; width: 49%;">
         <input type="submit" name="submit" value="Add Event" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246);">
       </form>
@@ -63,50 +67,57 @@
                 dateRange = dateSelect.MPDatepicker('value'),
                 fromDate = dateRange.from,
                 toDate = dateRange.to;
-            for (j=1;j<i;j++) {
-              var thisEvent = eval('event'+j);
-              value = thisEvent.MPEventSelect('value');
-              events.push({
-                event: value
-              });
-            };
             
-            console.log(events);
-            
-            var params =  $.extend({}, dateRange, {
-              'events': events,
-              'limit': 100, // maximum number of results to return
-              'length': 14, // number of days each user has to complete the funnel
-            });
-            
-            console.log(params);
-            
-            MP.api.funnel(params).done(function(results) {
-              console.log(results);
-            });
+            if (i>2) {
+              for (j=1;j<i;j++) {
+                var thisEvent = eval('event'+j);
+                value = thisEvent.MPEventSelect('value');
+                events.push({
+                  event: value
+                });
+              };
               
-            // // build out list of events
-            // $.each(eventNames, function(i, event) {
-            //   eventThere = event.MPEventSelect('value');
-            //   if (eventThere) {
-            //     events.push(eventThere);
-            //   }
-            // });
-            
-            // console.log(events)  
-  
-            // parameters = {
-            //   from: fromDate,
-            //   // to: toDate,
-            //   to: fromDate,
-            //   window_size: '1',
-            //   params: JSON.stringify({steps: events})
-            // }
-  
-            // if (events.length > 1) {
-            //   console.log(parameters);
-            // }
-        };
+              console.log(events);
+              
+              var params =  $.extend({}, dateRange, {
+                'events': events,
+                'limit': 100, // maximum number of results to return
+                'length': 14, // number of days each user has to complete the funnel
+              });
+              
+              console.log(params);
+              
+              MP.api.funnel(params).done(function(results) {
+                console.log(results);
+              });
+                
+              // // build out list of events
+              // $.each(eventNames, function(i, event) {
+              //   eventThere = event.MPEventSelect('value');
+              //   if (eventThere) {
+              //     events.push(eventThere);
+              //   }
+              // });
+              
+              // console.log(events)  
+    
+              // parameters = {
+              //   from: fromDate,
+              //   // to: toDate,
+              //   to: fromDate,
+              //   window_size: '1',
+              //   params: JSON.stringify({steps: events})
+              // }
+    
+              // if (events.length > 1) {
+              //   console.log(parameters);
+              // }
+            } else {
+              $('.confirm-text')
+            .html("Error: Please select atleast 2 events.")
+            .css("color", "red");
+            }
+          };
   
         //Run when button clicked
         $('#run').on('click', function(e){runQuery()});
