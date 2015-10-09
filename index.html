@@ -32,8 +32,8 @@
       
       <form id="filters" style="margin-bottom: 15px; height: 31px">
         <input type="submit" name="submit" value="Add Event" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
+        <button id="run" value="Run">Run</button>
       </form>
-      <button id="run" value="Run">Run</button>
       
       <div style="clear: both;"></div>
     </div>
@@ -90,30 +90,8 @@
   
         };
   
-        // set functions to run when dropdowns change
-        event1.on('change', function(e, eventName) {
-          runQuery();
-          $("#step2").show();
-        });
-        event2.on('change', function(e, eventName) {
-          runQuery();
-          $("#step3").show();
-        });
-        event3.on('change', function(e, eventName) {
-          runQuery();
-          $("#step4").show();
-        });
-        event4.on('change', function(e, eventName) {
-          runQuery();
-          $("#step5").show();
-        });
-        event5.on('change', function(e, eventName) {
-          runQuery();
-        });
-  
-        dateSelect.on('change', function() {
-          runQuery();
-        });
+        //Run when button clicked
+        $('#run').on('click', function(e){runQuery()});
       });
     </script>
   </body>
