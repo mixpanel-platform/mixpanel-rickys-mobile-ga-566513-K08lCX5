@@ -35,9 +35,6 @@
         </div>
       </div>
       
-      <div class="error">
-        <p class="error-text" style="color: rgb(95,105,131); font-size: 15px"></p>
-      </div>
       
       <form id="addEvent" style="margin-bottom: 15px; height: 31px; float:center; display:inline; width: 49%;">
         <input type="submit" name="submit" value="Add Event" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246);">
@@ -46,6 +43,11 @@
       <button id="run" value="Run" style="font-weight: bold; color: rgb(255,255,255); font-size: 12px; height: 31px; padding: 0 25px; margin-left: 10px; border: 1px solid rgb(77,147,215); background-color: rgb(96,173,233);">Run</button>
       <div style="clear: both;"></div>
     </div>
+      
+    <div class="results">
+        <p class="results-text" style="color: rgb(95,105,131); font-size: 18px"></p>
+      </div>
+    
     <script>
       MP.api.ready(function() {
         // Generate dropdowns in the UI
@@ -53,7 +55,7 @@
         i = 2;
         $('#addEvent').submit(function(e) {
           e.preventDefault();
-          $('.error-text').html("");
+          $('.results-text').html("");
           $('<div class="event-selects" id="step'+i+'"><div class="step_header" style ="padding: 8px 15px; padding-top: 8px; padding-right: 15px; padding-bottom: 8px; padding-left: 15px; background-color: #E4E6EA; border-radius: 3px 3px 0 0; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; box-shadow: inset 0 1px #fbfbfd; position: relative; \'display\': \'inline-block\';"><img src="https://cdn.mxpnl.com/cache/fa5ca9a7928f8ac78988e3c4ac427802/images/reports/funnels3/drag_handle.png" style = "margin-right: 8px; cursor: all-scroll;"><h3 style = "display: inline; color: #596679; font-size: 13px;">Step '+i+'</h3></div><div class="step_body" style= "padding: 16px 15px; padding-top: 16px; padding-right: 15px; padding-bottom: 16px; padding-left: 15px; background-color: #fff; border-top: 1px solid #ccd5e0; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 213, 224); border-radius: 0 0 3px 3px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;"><div id="event'+i+'" style="padding: 0 25px 0 28px; padding-top: 0px; padding-right: 25px; padding-bottom: 0px; padding-left: 28px;"></div></div><div class="drop" style= "height: 19px; -webkit-transition: height .1s; transition: height .1s; transition-property: height; transition-duration: 0.1s; transition-timing-function: initial; transition-delay: initial;"></div></div>').appendTo(funnelStep);
           window['event'+i] = $('#event'+i).MPEventSelect()
           console.log(window['event'+i] = $('#event'+i).MPEventSelect());
@@ -92,7 +94,7 @@
           };
           
           if (events.length == 1) {
-            $('.error-text').html("Error: Please select atleast 2 events.").css("color", "red");
+            $('.results-text').html("Error: Please select atleast 2 events.").css("color", "red");
           } else {
             var params =  $.extend({}, dateRange, {
               'events': events,
@@ -113,6 +115,7 @@
                   sum += value;
                 });
                 event = events[stepNum]["event"]
+                $('.results-text').html("Error: Please select atleast 2 events.")
                 output[event] = sum;
               });
               
