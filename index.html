@@ -65,13 +65,15 @@
                 toDate = dateRange.to;
             for (j=1;j<i;j++) {
               var thisEvent = eval('event'+j);
+              var dict = {};
               value = thisEvent.MPEventSelect('value');
-              events.push(value)
+              dict["event"] = value,
+              events.push(dict)
             };
             
             console.log(events);
             var params =  $.extend({}, dateRange, {
-              'events': events,
+              'events': dict,
               'limit': 100, // maximum number of results to return
               'length': 14, // number of days each user has to complete the funnel
             });
