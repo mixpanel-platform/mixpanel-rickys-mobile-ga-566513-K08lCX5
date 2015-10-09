@@ -36,6 +36,8 @@
     </div>
     <script>
       MP.api.ready(function() {
+        
+        // Generate funnel steps in the UI
         $(function() {
           var funnelStep = $('#funnel-step');
           i = 2;
@@ -48,18 +50,16 @@
             return false;
           });
         });
+        
         // populate each dropdown with the project's events and add a date picker
   
-        var event1 = $('#event1').MPEventSelect(),
-            event2 = $('#event2').MPEventSelect(),
-            event3 = $('#event3').MPEventSelect(),
-            event4 = $('#event4').MPEventSelect(),
-            event5 = $('#event5').MPEventSelect(),
-            dateSelect  = $('#dateSelect').MPDatepicker()
+        var dateSelect  = $('#dateSelect').MPDatepicker();
             
             
         var runQuery = function() {
             console.log(i);
+            console.log(event1)
+            console.log(event2)
             var events = [],
                 eventNames = [event1, event2, event3, event4, event5],
                 dateRange = dateSelect.MPDatepicker('value'),
