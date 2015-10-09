@@ -76,27 +76,27 @@
               console.log(results);
             });
               
-            // build out list of events
-            $.each(eventNames, function(i, event) {
-              eventThere = event.MPEventSelect('value');
-              if (eventThere) {
-                events.push(eventThere);
-              }
-            });
+            // // build out list of events
+            // $.each(eventNames, function(i, event) {
+            //   eventThere = event.MPEventSelect('value');
+            //   if (eventThere) {
+            //     events.push(eventThere);
+            //   }
+            // });
             
-            console.log(events)  
+            // console.log(events)  
   
-            parameters = {
-              from: fromDate,
-              // to: toDate,
-              to: fromDate,
-              window_size: '1',
-              params: JSON.stringify({steps: events})
-            }
+            // parameters = {
+            //   from: fromDate,
+            //   // to: toDate,
+            //   to: fromDate,
+            //   window_size: '1',
+            //   params: JSON.stringify({steps: events})
+            // }
   
-            if (events.length > 1) {
-              console.log(parameters);
-            }
+            // if (events.length > 1) {
+            //   console.log(parameters);
+            // }
   
         };
   
