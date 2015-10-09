@@ -64,7 +64,11 @@
               fromDate = dateRange.from,
               toDate = dateRange.to;
           
-          if (i>2) {
+          if (i == 2) {
+            $('.error-text')
+            .html("Error: Please select atleast 2 events.")
+            .css("color", "red");
+          } else {
             for (j=1;j<i;j++) {
               var thisEvent = eval('event'+j);
               value = thisEvent.MPEventSelect('value');
@@ -81,10 +85,6 @@
             MP.api.funnel(params).done(function(results) {
               console.log(results);
             });
-          } else {
-            $('.error-text')
-          .html("Error: Please select atleast 2 events.")
-          .css("color", "red");
           };
         };
         
