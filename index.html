@@ -65,10 +65,12 @@
               
           for (j=1;j<i;j++) {
             var thisEvent = eval('event'+j);
-            value = thisEvent.MPEventSelect('value');
-            events.push({
-              event: value
-            });
+            if (thisEvent) {
+              value = thisEvent.MPEventSelect('value');
+              events.push({
+                event: value
+              });
+            };
           };
           
           if (events.length == 1) {
