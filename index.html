@@ -63,23 +63,19 @@
                 dateRange = dateSelect.MPDatepicker('value'),
                 fromDate = dateRange.from,
                 toDate = dateRange.to;
-  
             
-            for (j=1;j<i-1;j++) {
+            for (j=1;j<i;j++) {
               var thisEvent = eval('event'+j);
               value = thisEvent.MPEventSelect('value');
               events.push(value)
             };
             
             console.log(events);
-              
             
-            var events = [],
-                eventNames = [event1, event2, event3, event4, event5],
-                dateRange = dateSelect.MPDatepicker('value'),
-                fromDate = dateRange.from,
-                toDate = dateRange.to;
-  
+            MP.api.funnel(events).done(function(results) {
+              console.log(results);
+            });
+              
             // build out list of events
             $.each(eventNames, function(i, event) {
               eventThere = event.MPEventSelect('value');
