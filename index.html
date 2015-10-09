@@ -91,9 +91,11 @@
                 _.each(_.keys(stepValues), function(dates){
                   var value = stepValues[dates]["count"];
                   sum = sum + value;
+                });
                 output["0"] = sum;
               console.log(output)  
               debugger;
+              });
             });
           };
         };
