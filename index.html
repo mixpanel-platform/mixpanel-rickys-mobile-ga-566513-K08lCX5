@@ -114,6 +114,8 @@
                 });
                 event = events[stepNum]["event"]
                 output[event] = sum;
+              )};
+              
               console.log(output) 
               
               for (i=1;i=events.length,i++) {
@@ -121,9 +123,8 @@
                 eventA = events[i-1]["event"];
                 conversion = output[eventB]/output[eventA]
                 finalOutput["Conversion 1: Total "+eventB+" / Total "+eventA] = conversion;
-              }
+              };
               console.log(finalOutput);
-              });
             });
           };
         };
