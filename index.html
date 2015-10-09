@@ -78,7 +78,8 @@
           var events = [],
               dateRange = dateSelect.MPDatepicker('value'),
               fromDate = dateRange.from,
-              toDate = dateRange.to;
+              toDate = dateRange.to,
+              interval  = intervalSelect.MPSelect('value');
               
           for (j=1;j<i;j++) {
             var thisEvent = eval('event'+j);
@@ -96,7 +97,7 @@
             var params =  $.extend({}, dateRange, {
               'events': events,
               'limit': 100, // maximum number of results to return
-              'length': 14, // number of days each user has to complete the funnel
+              'length': interval // number of days each user has to complete the funnel
             });
             
             MP.api.funnel(params).done(function(results) {
