@@ -62,17 +62,15 @@
         });
         var options = {
           items: [
-            {label: '5 min', value: 'general'},
-            {label: '1 hour', value: 'unique'},
-            {label: '1 day', value: 'average'},
-            {label: '1 week', value: 'average'},
-            {label: '2 weeks', value: 'average'},
-            {label: '30 days', value: 'average'},
-            {label: '90 days', value: 'average'}
+            {label: '1 day', value: 1},
+            {label: '1 week', value: 7},
+            {label: '2 weeks', value: 14},
+            {label: '30 days', value: 30},
+            {label: '90 days', value: 90}
             ]
         };
         var event1 = $('#event1').MPEventSelect(),
-            intervalSelect  = $('#mpselect').MPSelect(options);
+            intervalSelect  = $('#mpselect').MPSelect(options),
             dateSelect  = $('#dateSelect').MPDatepicker();
         
         // Run Query    
