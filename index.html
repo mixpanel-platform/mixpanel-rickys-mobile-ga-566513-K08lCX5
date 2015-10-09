@@ -12,6 +12,10 @@
       <div class="instructions">
         <div id="dateSelect" style="float: right; margin-bottom: 15px"></div>
         <h1 style="font-size: 18px; color: rgb(95,105,131)">Create a funnel</h1>
+        
+        <p style="font-size: 14px; color: rgb(95,105,131)">Select Date Range</p>
+        <div id="mpselect" style="float: right;"></div>
+        
       </div><br>
       
       <div class="funnel-step" id="funnel-step">
@@ -52,7 +56,17 @@
           i++;
           return false;
         });
-        
+        var options = {
+          items: [
+            {label: '5 min', value: 'general'},
+            {label: '1 hour', value: 'unique'},
+            {label: '1 day', value: 'average'},
+            {label: '1 week', value: 'average'},
+            {label: '2 weeks', value: 'average'},
+            {label: '30 days', value: 'average'},
+            {label: '90 days', value: 'average'}
+            ]
+        };
         var event1 = $('#event1').MPEventSelect(),
             dateSelect  = $('#dateSelect').MPDatepicker();
         
@@ -83,8 +97,8 @@
             });
             
             MP.api.funnel(params).done(function(results) {
-              console.log(results);
               output = {};
+              finalOutput = {};
               stepNum = -1;
               _.each(_.keys(results), function(step){
                 stepNum += 1
@@ -96,8 +110,11 @@
                 });
                 event = events[stepNum]["event"]
                 output[event] = sum;
-              console.log(output)  
-              debugger;
+              console.log(output) 
+              
+              
+              
+              
               });
             });
           };
