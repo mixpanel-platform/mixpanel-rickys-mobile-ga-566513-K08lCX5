@@ -67,7 +67,7 @@
             var thisEvent = eval('event'+j);
             value = thisEvent.MPEventSelect('value');
             debugger;
-            if (typeof value != "undefined") {
+            if (value != null) {
               events.push({
                 event: value
               });
