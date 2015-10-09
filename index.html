@@ -65,12 +65,10 @@
                 toDate = dateRange.to;
   
             
-            for (j=1;j<i;j++) {
-              var thisEvent = window['event'+j];
-              debugger;
+            for (j=1;j<i-1;j++) {
+              var thisEvent = eval('event'+j);
               value = thisEvent.MPEventSelect('value');
               events.push(value)
-              debugger;
             };
             
             console.log(events);
