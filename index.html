@@ -65,7 +65,7 @@
               
           for (j=1;j<i;j++) {
             var thisEvent = eval('event'+j);
-            if (thisEvent) {
+            if ((typeof thisEvent != "undefined") {
               value = thisEvent.MPEventSelect('value');
               events.push({
                 event: value
