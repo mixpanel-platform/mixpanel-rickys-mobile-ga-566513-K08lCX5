@@ -115,10 +115,10 @@
                   sum += value;
                 });
                 event = events[stepNum]["event"]
-                $('.results-text').html("Error: Please select atleast 2 events.")
                 output[event] = sum;
               });
               
+              $('.results-text').html(output)
               console.log(output) 
               
               for (x=1;x<events.length;x++) {
