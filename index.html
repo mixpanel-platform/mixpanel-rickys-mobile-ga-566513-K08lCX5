@@ -85,12 +85,14 @@
             MP.api.funnel(params).done(function(results) {
               console.log(results);
               output = {};
+              stepNum = 0;
               _.each(_.keys(results), function(step){
+                stepNum += 1
                 var stepValues = results[step];
                 var sum = 0;
                 _.each(_.keys(stepValues), function(dates){
                   var value = stepValues[dates]["count"];
-                  sum = sum + value;
+                  sum += value;
                 });
                 output["0"] = sum;
               console.log(output)  
