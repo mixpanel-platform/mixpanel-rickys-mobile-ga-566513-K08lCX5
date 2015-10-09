@@ -118,10 +118,10 @@
               
               console.log(output) 
               
-              for (i=1;i=events.length;i++) {
+              for (x=1;x=events.length;x++) {
                 debugger;
-                eventB = events[i]["event"];
-                eventA = events[i-1]["event"];
+                eventB = events[x]["event"];
+                eventA = events[x-1]["event"];
                 conversion = output[eventB]/output[eventA]
                 finalOutput["Conversion 1: Total "+eventB+" / Total "+eventA] = conversion;
               };
