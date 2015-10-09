@@ -73,9 +73,8 @@
             
             console.log(events);
             
-            debugger;
             var params =  $.extend({}, dateRange, {
-              'events': dict,
+              'events': events,
               'limit': 100, // maximum number of results to return
               'length': 14, // number of days each user has to complete the funnel
             });
