@@ -76,6 +76,8 @@
               'length': 14, // number of days each user has to complete the funnel
             });
             
+            console.log(params);
+            
             MP.api.funnel(events).done(function(results) {
               console.log(results);
             });
