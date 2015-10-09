@@ -123,7 +123,7 @@
                 eventB = events[x]["event"];
                 eventA = events[x-1]["event"];
                 conversion = output[eventB]/output[eventA]
-                finalOutput["Conversion 1: Total "+eventB+" / Total "+eventA] = conversion;
+                finalOutput["Conversion "+x+": Total "+eventB+" / Total "+eventA] = conversion;
               };
               console.log(finalOutput);
             });
