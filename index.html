@@ -54,17 +54,17 @@
         
         // populate each dropdown with the project's events and add a date picker
   
-        var event01 = $('#event1').MPEventSelect(),
-            event02 = $('#event2').MPEventSelect(),
-            event03 = $('#event3').MPEventSelect(),
-            event04 = $('#event4').MPEventSelect(),
-            event05 = $('#event5').MPEventSelect();
-            
-        var dateSelect  = $('#dateSelect').MPDatepicker()
+        var event1 = $('#event1').MPEventSelect(),
+            dateSelect  = $('#dateSelect').MPDatepicker();
             
             
         var runQuery = function() {
             console.log(i);
+            console.log(event1.MPEventSelect('value'))
+            console.log(event2.MPEventSelect('value'))
+            console.log(event3.MPEventSelect('value'))
+
+            
             var events = [],
                 eventNames = [event1, event2, event3, event4, event5],
                 dateRange = dateSelect.MPDatepicker('value'),
