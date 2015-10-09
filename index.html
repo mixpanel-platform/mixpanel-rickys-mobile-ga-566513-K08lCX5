@@ -65,14 +65,15 @@
                 toDate = dateRange.to;
             for (j=1;j<i;j++) {
               var thisEvent = eval('event'+j);
-              var dict = {};
               value = thisEvent.MPEventSelect('value');
-              dict["event"] = value,
-              events.push(dict)
-              debugger;
+              events.push({
+                event: value
+              });
             };
             
             console.log(events);
+            
+            debugger;
             var params =  $.extend({}, dateRange, {
               'events': dict,
               'limit': 100, // maximum number of results to return
