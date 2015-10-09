@@ -83,7 +83,7 @@
               'length': 14, // number of days each user has to complete the funnel
             });
             
-            MP.api.funnel(params).done(function(results) {
+            MP.api.funnel("App Install", "App Launched").done(function(results) {
               console.log(results);
             });
           };
