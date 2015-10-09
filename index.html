@@ -13,8 +13,9 @@
         <div id="dateSelect" style="float: right; margin-bottom: 15px"></div>
         <h1 style="font-size: 18px; color: rgb(95,105,131)">Create a funnel</h1>
         
-        <p style="font-size: 14px; color: rgb(95,105,131)">Select Date Range</p>
         <div id="mpselect" style="float: right;"></div>
+        <p style="font-size: 14px; color: rgb(95,105,131); float: right;">Select Date Range</p>
+        
         
       </div><br>
       
@@ -68,6 +69,7 @@
             ]
         };
         var event1 = $('#event1').MPEventSelect(),
+            intervalSelect  = $('#mpselect').MPSelect(options);
             dateSelect  = $('#dateSelect').MPDatepicker();
         
         // Run Query    
