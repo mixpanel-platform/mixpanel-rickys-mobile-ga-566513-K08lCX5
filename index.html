@@ -105,7 +105,7 @@
             
             MP.api.funnel(params).done(function(results) {
               output = {};
-              finalOutput = "";
+              finalOutput = "Results:\n";
               stepNum = -1;
               _.each(_.keys(results), function(step){
                 stepNum += 1
@@ -130,7 +130,7 @@
                 conversion = output[eventB]/output[eventA]
                 finalOutput += "Conversion "+x+": Total "+eventB+" / Total "+eventA+"- "+conversion+"\n";
               };
-              $('.results-text').html(finalOutput)
+              $('.results-text').html(finalOutput).css('font-size', '14px')
             });
           };
         };
