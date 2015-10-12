@@ -45,8 +45,8 @@
     </div>
       
     <div class="results">
-        <p class="results-text" style="color: rgb(95,105,131); font-size: 18px"></p>
-      </div>
+      <p class="results-text" style="color: rgb(95,105,131); font-size: 18px"></p>
+    </div>
     
     <script>
       MP.api.ready(function() {
@@ -96,6 +96,7 @@
           if (events.length == 1) {
             $('.results-text').html("Error: Please select atleast 2 events.").css("color", "red");
           } else {
+            $('.results-text').html("");
             var params =  $.extend({}, dateRange, {
               'events': events,
               'limit': 100, // maximum number of results to return
@@ -104,7 +105,7 @@
             
             MP.api.funnel(params).done(function(results) {
               output = {};
-              finalOutput = {};
+              finalOutput = "";
               stepNum = -1;
               _.each(_.keys(results), function(step){
                 stepNum += 1
@@ -118,7 +119,7 @@
                 output[event] = sum;
               });
               
-              $('.results-text').html(output)
+              
               console.log(results)
               console.log(output) 
               
@@ -127,9 +128,9 @@
                 eventB = events[x]["event"];
                 eventA = events[x-1]["event"];
                 conversion = output[eventB]/output[eventA]
-                finalOutput["Conversion "+x+": Total "+eventB+" / Total "+eventA] = conversion;
+                finalOutput += "Conversion "+x+": Total "+eventB+" / Total "+eventA+"- "+conversion+"\n";
               };
-              console.log(finalOutput);
+              $('.results-text').html(finalOutput)
             });
           };
         };
