@@ -127,7 +127,7 @@
                 eventB = events[x]["event"];
                 eventA = events[x-1]["event"];
                 conversion = output[eventB]/output[eventA]
-                finalOutput += "Conversion "+x+": Total "+eventB+" / Total "+eventA+"<p style = 'font-weight: bold; padding-left: 15px;>" +conversion+"</p></ br>";
+                finalOutput += "Conversion "+x+": Total "+eventB+" / Total "+eventA+"<p style = 'font-weight: bold;>" +conversion+"</p></ br>";
               };
               $('.results-text').html(finalOutput).css('font-size', '16px')
             });
